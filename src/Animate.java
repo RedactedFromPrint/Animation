@@ -28,8 +28,8 @@ final public class Animate {
 
         frame.setVisible(true);
         frame.setResizable(false);
-        frame.setSize(600, 600);
-        frame.setLocation(375, 55);
+        frame.setSize(851, 480);
+        frame.setLocation(250,100);
         moveDot();
     }
 
@@ -44,17 +44,19 @@ final public class Animate {
             g.setColor(new Color(217,102,169));
             g.fillRect(0, 0, this.getWidth(), this.getHeight());
             
-            //Road
-            g.setColor(new Color(27,174,204));
-            int[] x = {0,0,225,375,this.getWidth(),this.getWidth()};
-            int[] y = {this.getHeight(),400,300,300,400,this.getHeight()};
-            g.fillPolygon(x, y, 6);
+            //Road Base
+            int height = this.getHeight();
+            g.setColor(new Color(36,171,203));
+            int[] xBase = {0,0,398,463,this.getWidth(),this.getWidth()};
+            int[] yBase = {height,height-154,height-212,height-212,height-154,height};
+            g.fillPolygon(xBase, yBase, 6);
             
-            //Dot
-            g.setColor(Color.BLACK);
-            //g.fillRect(oneX, oneY, 6, 6); // This is the dot
-            //g.fillRect(oneX + 2, oneY - 2, 2, 10);
-            //g.fillRect(oneX - 2, oneY + 2, 10, 2);
+            //Road Markers
+            g.setColor(new Color(30,200,178));
+            int[] xColor = {0,0,398,463,this.getWidth(),this.getWidth()};
+            int[] yColor = {height,height-154,height-212,height-212,height-154,height};
+            g.fillPolygon(xColor, yColor, 4);
+            
         }
     }
 
