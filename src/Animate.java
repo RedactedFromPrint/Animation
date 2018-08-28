@@ -47,15 +47,21 @@ final public class Animate {
             //Road Base
             int height = this.getHeight();
             g.setColor(new Color(36,171,203));
-            int[] xBase = {0,0,398,463,this.getWidth(),this.getWidth()};
-            int[] yBase = {height,height-154,height-212,height-212,height-154,height};
+            int[] xBase = {0,0,398,463,845,845};
+            int[] yBase = {480,326,268,268,326,480};
             g.fillPolygon(xBase, yBase, 6);
             
-            //Road Markers
+            //Moving Road
             g.setColor(new Color(30,200,178));
-            int[] xColor = {0,0,398,463,this.getWidth(),this.getWidth()};
-            int[] yColor = {height,height-154,height-212,height-212,height-154,height};
-            g.fillPolygon(xColor, yColor, 4);
+            int x1 = 0;
+            int x2 = 312;
+            int x3 = 547;
+            int x4 = 845;
+            int y1 = 326;
+            int y2 = 299;
+            int[] xMoving = {x1,x2,x3,x4};
+            int[] yMoving = {y1,y2,y2,y1};
+            g.fillPolygon(xMoving, yMoving, 4);
             
         }
     }
