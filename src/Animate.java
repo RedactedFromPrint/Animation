@@ -5,16 +5,8 @@ final public class Animate {
 
     JFrame frame;
     DrawPanel drawPanel;
-
-    private int x1 = 372;
-    private int x2 = 398;
-    private int x3 = 463;
-    private int x4 = 488;
-    private int y1 = 272;
-    private int y2 = 268;
     
-    private int xInc = 7;
-    private int yInc = 1;
+    MovingRoad road1 = new MovingRoad();
 
     public static void main(String[] args) {
         new Animate().go();
@@ -54,47 +46,19 @@ final public class Animate {
             
             //Moving Road
             g.setColor(new Color(30,200,178));
-            int[] xMoving = {x1,x2,x3,x4};
-            int[] yMoving = {y1,y2,y2,y1};
-            g.fillPolygon(xMoving, yMoving, 4);
-            
+            g.fillPolygon(road1.getX(), road1.getY(), 4);
         }
     }
 //need 5 road pieces on screen at a time
     private void drive() {
         while(true){
-            checkBounds();
-            moveRoad();
+            road1.checkBounds();
+            road1.moveRoad();
             try{
                 Thread.sleep(30);
             } catch (Exception exc){}
             frame.repaint();
         }
     }
-    private void moveRoad(){
-    	x1 -= xInc*2;
-    	x2 -= xInc;
-    	x3 += xInc;
-    	x4 += xInc*2;
-    	y1 += yInc*2;
-    	y2 += yInc*1;
-    	
-    }
-    private void checkBounds(){
-    	if (y1 % 5 == 0) {
-    		xInc *= 2;
-    		yInc *= 2;
-    	}
-    	
-    	if (y2 > 474) {
-    		x1 = 372;
-    	    x2 = 398;
-    	    x3 = 463;
-    	    x4 = 488;
-    	    y1 = 272;
-    	    y2 = 268;
-    	    xInc = 7;
-    	    yInc = 1;
-    	}
-    }
+    
 }
