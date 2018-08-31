@@ -9,7 +9,7 @@ final public class Animate {
     
     ArrayList<MovingRoad> roads = new ArrayList<MovingRoad>();{
     	for (int i = 0; i < 5; i++) {
-    		roads.add(new MovingRoad());
+    		roads.add(new MovingRoad(i));
     	}
     }
 

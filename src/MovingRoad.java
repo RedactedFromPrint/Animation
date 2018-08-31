@@ -2,6 +2,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 
 public class MovingRoad {
+	private int number;
 	private int x1;
 	private int x2;
 	private int x3;
@@ -13,7 +14,8 @@ public class MovingRoad {
     private int[] xMoving = {x1,x2,x3,x4};
     private int[] yMoving = {y1,y2,y2,y1};
     
-    public MovingRoad() {
+    public MovingRoad(int number) {
+    	this.number = number;
     	x1 = 372;
     	x2 = 398;
     	x3 = 463;
