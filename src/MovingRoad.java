@@ -11,8 +11,6 @@ public class MovingRoad {
 	private int y2;
 	private int xInc;
 	private int yInc;
-    private int[] xMoving = {x1,x2,x3,x4};
-    private int[] yMoving = {y1,y2,y2,y1};
     
     public MovingRoad(int number) {
     	this.number = number;
@@ -28,6 +26,8 @@ public class MovingRoad {
     
     public void drawRoad(Graphics g) {
     	g.setColor(new Color(30,200,178));
+    	int[] xMoving = {x1,x2,x3,x4};
+        int[] yMoving = {y1,y2,y2,y1};
     	g.fillPolygon(xMoving, yMoving, 4);
     }
     
