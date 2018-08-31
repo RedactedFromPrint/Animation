@@ -2,7 +2,8 @@ import java.awt.Color;
 import java.awt.Graphics;
 
 public class MovingRoad {
-	private int number;
+	private int num;
+	private int count;
 	private int x1;
 	private int x2;
 	private int x3;
@@ -12,8 +13,9 @@ public class MovingRoad {
 	private int xInc;
 	private int yInc;
     
-    public MovingRoad(int number) {
-    	this.number = number;
+    public MovingRoad(int instance) {
+    	num = instance*10;
+    	count = 0;
     	x1 = 372;
     	x2 = 398;
     	x3 = 463;
@@ -24,11 +26,22 @@ public class MovingRoad {
     	yInc = 1;
     }
     
+    public boolean checkNum() {
+    	if (count < num) {
+    		return false;
+    	}
+    	else {return true;}
+    }
+    
     public void drawRoad(Graphics g) {
+    	if (!checkNum()) {
+    		count++;
+    	}else {
     	g.setColor(new Color(30,200,178));
     	int[] xMoving = {x1,x2,x3,x4};
         int[] yMoving = {y1,y2,y2,y1};
     	g.fillPolygon(xMoving, yMoving, 4);
+    	}
     }
     
     public void moveRoad(){
@@ -46,7 +59,7 @@ public class MovingRoad {
     		yInc *= 2;
     	}
     	
-    	if (y2 > 474) {
+    	if (y2 > 600) {
     		x1 = 372;
     	    x2 = 398;
     	    x3 = 463;

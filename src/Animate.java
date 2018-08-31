@@ -8,7 +8,7 @@ final public class Animate {
     DrawPanel drawPanel;
     
     ArrayList<MovingRoad> roads = new ArrayList<MovingRoad>();{
-    	for (int i = 0; i < 5; i++) {
+    	for (int i = 0; i < 3; i++) {
     		roads.add(new MovingRoad(i));
     	}
     }
@@ -18,7 +18,7 @@ final public class Animate {
     }
 
     private void go() {
-        frame = new JFrame("Test");
+        frame = new JFrame("Vaporwave Animated Road");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         drawPanel = new DrawPanel();
@@ -61,14 +61,15 @@ final public class Animate {
     private void drive() {
         while(true){
         	for (MovingRoad road: roads) {
-        		road.checkBounds();
-        		road.moveRoad();
+        		if (road.checkNum()) {
+        			road.checkBounds();
+        			road.moveRoad();
+        		}
         	}
             try{
-                Thread.sleep(30);
+                Thread.sleep(35);
             } catch (Exception exc){}
             frame.repaint();
         }
     }
-    
 }
