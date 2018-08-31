@@ -1,15 +1,20 @@
 import javax.swing.*;
 import java.awt.*;
+import java.util.*;
 
 final public class Animate {
 
     JFrame frame;
     DrawPanel drawPanel;
     
-    MovingRoad road1 = new MovingRoad();
+    ArrayList<MovingRoad> roads = new ArrayList<MovingRoad>();{
+    	for (int i = 0; i < 5; i++) {
+    		roads.add(new MovingRoad());
+    	}
+    }
 
     public static void main(String[] args) {
-        new Animate().go();
+    	new Animate().go();
     }
 
     private void go() {
@@ -26,7 +31,8 @@ final public class Animate {
         frame.setLocation(250,100);
         drive();
     }
-
+    
+    
     class DrawPanel extends JPanel {
 		/**
 		 * 
@@ -40,20 +46,24 @@ final public class Animate {
             
             //Road Base
             g.setColor(new Color(36,171,203));
-            int[] xBase = {0,0,398,463,845,845};
+            int[] xBase = {0,0,398,463,851,851};
             int[] yBase = {480,326,268,268,322,480};
             g.fillPolygon(xBase, yBase, 6);
             
             //Moving Road
-            g.setColor(new Color(30,200,178));
-            g.fillPolygon(road1.getX(), road1.getY(), 4);
+            for (MovingRoad road: roads) {
+        		road.drawRoad(g);
+        	}
         }
     }
-//need 5 road pieces on screen at a time
+    
+    
     private void drive() {
         while(true){
-            road1.checkBounds();
-            road1.moveRoad();
+        	for (MovingRoad road: roads) {
+        		road.checkBounds();
+        		road.moveRoad();
+        	}
             try{
                 Thread.sleep(30);
             } catch (Exception exc){}

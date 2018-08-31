@@ -1,34 +1,32 @@
+import java.awt.Color;
+import java.awt.Graphics;
 
 public class MovingRoad {
-	
 	private int x1;
-    private int x2;
-    private int x3;
-    private int x4;
-    private int y1;
-    private int y2;
-    private int xInc;
-    private int yInc;
+	private int x2;
+	private int x3;
+	private int x4;
+	private int y1;
+	private int y2;
+	private int xInc;
+	private int yInc;
     private int[] xMoving = {x1,x2,x3,x4};
     private int[] yMoving = {y1,y2,y2,y1};
     
     public MovingRoad() {
     	x1 = 372;
-        x2 = 398;
-        x3 = 463;
-        x4 = 488;
-        y1 = 272;
-        y2 = 268;
-        xInc = 7;
-        yInc = 1;
+    	x2 = 398;
+    	x3 = 463;
+    	x4 = 488;
+    	y1 = 272;
+    	y2 = 268;
+    	xInc = 7;
+    	yInc = 1;
     }
     
-    public int[] getX() {
-    	return xMoving;
-    }
-    
-    public int[] getY() {
-    	return yMoving;
+    public void drawRoad(Graphics g) {
+    	g.setColor(new Color(30,200,178));
+    	g.fillPolygon(xMoving, yMoving, 4);
     }
     
     public void moveRoad(){
