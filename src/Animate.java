@@ -7,6 +7,8 @@ final public class Animate {
     JFrame frame;
     DrawPanel drawPanel;
     
+    private boolean start = true;
+    
     ArrayList<MovingRoad> roads = new ArrayList<MovingRoad>();{
     	for (int i = 0; i < 3; i++) {
     		roads.add(new MovingRoad(i));
@@ -40,6 +42,15 @@ final public class Animate {
 		private static final long serialVersionUID = -3030379568821478211L;
 		
 		public void paintComponent(Graphics g) {
+			if (start) {
+				for (int i = 0; i < 20; i++) {
+					for (MovingRoad road: roads) {
+		        		road.drawRoad(g);
+		        	}
+				}
+				start = false;
+			}
+			
         	//Background
             g.setColor(new Color(217,102,169));
             g.fillRect(0, 0, this.getWidth(), this.getHeight());
@@ -60,12 +71,6 @@ final public class Animate {
     
     private void drive() {
         while(true){
-        	for (MovingRoad road: roads) {
-        		if (road.checkNum()) {
-        			road.checkBounds();
-        			road.moveRoad();
-        		}
-        	}
             try{
                 Thread.sleep(35);
             } catch (Exception exc){}
