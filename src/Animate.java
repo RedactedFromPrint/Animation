@@ -43,7 +43,7 @@ final public class Animate {
 		
 		public void paintComponent(Graphics g) {
 			if (start) {
-				for (int i = 0; i < 20; i++) {
+				for (int i = 0; i < 24; i++) {
 					for (MovingRoad road: roads) {
 		        		road.drawRoad(g);
 		        	}
@@ -51,11 +51,7 @@ final public class Animate {
 				start = false;
 			}
 			
-        	//Background
-            g.setColor(new Color(217,102,169));
-            g.fillRect(0, 0, this.getWidth(), this.getHeight());
-            
-            //Road Base
+        	//Road Base
             g.setColor(new Color(36,171,203));
             int[] xBase = {0,0,398,463,851,851};
             int[] yBase = {480,326,268,268,322,480};
@@ -65,6 +61,13 @@ final public class Animate {
             for (MovingRoad road: roads) {
         		road.drawRoad(g);
         	}
+            
+            //Background
+            g.setColor(new Color(217,102,169));
+    		int[] xBackground = {0,0,398,463,851,851};
+    		int[] yBackground = {0,326,268,268,322,0};
+    		g.fillPolygon(xBackground, yBackground, 6);
+    		
         }
     }
     
