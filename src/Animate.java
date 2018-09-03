@@ -14,6 +14,12 @@ final public class Animate {
     		roads.add(new MovingRoad(i));
     	}
     }
+    
+    ArrayList<PalmTrees> trees = new ArrayList<PalmTrees>();{
+    	for (int i = 0; i < 12; i++) {
+    		trees.add(new PalmTrees(i));
+    	}
+    }
 
     public static void main(String[] args) {
     	new Animate().go();
@@ -43,9 +49,12 @@ final public class Animate {
 		
 		public void paintComponent(Graphics g) {
 			if (start) {
-				for (int i = 0; i < 24; i++) {
+				for (int i = 0; i < 25; i++) {
 					for (MovingRoad road: roads) {
-		        		road.drawRoad(g);
+		        		road.draw(g);
+		        	}
+					for (PalmTrees tree: trees) {
+		        		tree.draw(g);
 		        	}
 				}
 				start = false;
@@ -53,13 +62,11 @@ final public class Animate {
 			
         	//Road Base
             g.setColor(new Color(36,171,203));
-            int[] xBase = {0,0,398,463,851,851};
-            int[] yBase = {480,326,268,268,322,480};
-            g.fillPolygon(xBase, yBase, 6);
+            g.fillRect(0, 0, 851, 480);
             
             //Moving Road
             for (MovingRoad road: roads) {
-        		road.drawRoad(g);
+        		road.draw(g);
         	}
             
             //Background
@@ -67,6 +74,11 @@ final public class Animate {
     		int[] xBackground = {0,0,398,463,851,851};
     		int[] yBackground = {0,326,268,268,322,0};
     		g.fillPolygon(xBackground, yBackground, 6);
+    		
+    		//Trees
+    		for (PalmTrees tree: trees) {
+        		tree.draw(g);
+        	}
     		
         }
     }
