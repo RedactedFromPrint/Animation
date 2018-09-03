@@ -69,11 +69,11 @@ final public class Animate {
         		road.draw(g);
         	}
             
-            //Background
+            //Sky
             g.setColor(new Color(217,102,169));
-    		int[] xBackground = {0,0,398,463,851,851};
-    		int[] yBackground = {0,326,268,268,322,0};
-    		g.fillPolygon(xBackground, yBackground, 6);
+    		int[] xSky = {0,0,398,463,851,851};
+    		int[] ySky = {0,326,268,268,322,0};
+    		g.fillPolygon(xSky, ySky, 6);
     		
     		//Trees
     		for (PalmTrees tree: trees) {
