@@ -53,9 +53,9 @@ final public class Animate {
 					for (MovingRoad road: roads) {
 		        		road.draw(g);
 		        	}
-					for (PalmTrees tree: trees) {
+					/*for (PalmTrees tree: trees) {
 		        		tree.draw(g);
-		        	}
+		        	}*/
 				}
 				start = false;
 			}
@@ -76,9 +76,9 @@ final public class Animate {
     		g.fillPolygon(xSky, ySky, 6);
     		
     		//Trees
-    		for (PalmTrees tree: trees) {
+    		/*for (PalmTrees tree: trees) {
         		tree.draw(g);
-        	}
+        	}*/
     		
         }
     }

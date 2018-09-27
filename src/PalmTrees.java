@@ -60,7 +60,6 @@ public class PalmTrees {
     		
     		checkBounds();
         	move();
-    		
     	}
     }
 	
