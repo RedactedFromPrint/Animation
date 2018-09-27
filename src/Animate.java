@@ -87,7 +87,7 @@ final public class Animate {
     private void drive() {
         while(true){
             try{
-                Thread.sleep(35);
+                Thread.sleep(350);
             } catch (Exception exc){}
             frame.repaint();
         }
